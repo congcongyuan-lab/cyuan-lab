@@ -51,9 +51,6 @@ jobs:
         run: |
           echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
           hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
-      # the two rows below are copied from https://github.com/HugoBlox/hugo-blox-builder/blob/main/starters/blog/.github/workflows/publish.yaml
-      - name: Generate Pagefind search index
-        run: npx pagefind --source "public"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
